@@ -50,6 +50,12 @@
             <TextField layoutX="284.0" layoutY="38.0" prefHeight="25.0" prefWidth="581.0" />
             <Button layoutX="895.0" layoutY="38.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Search" />
             <Text layoutX="537.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AnhNH - HomeScreen" />
+            <ImageView fitHeight="48.0" fitWidth="56.0" layoutX="1097.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/abab.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="1107.0" layoutY="14.0" text="0 media" textFill="#019cf5" />
          </children>
       </Pane>
       <GridPane layoutY="100.0" prefHeight="668.0" prefWidth="1366.0">
