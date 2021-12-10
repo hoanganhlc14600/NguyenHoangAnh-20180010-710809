@@ -67,6 +67,14 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 		this.province.getItems().addAll(Configs.PROVINCES);
 	}
 
+	/**
+	 *
+	 * @param event : su kien submit DeliveryInfo
+	 * rushOrder : lua chon cua khach hang co place rush order hay khong
+	 * @throws IOException
+	 * @throws InterruptedException
+	 * @throws SQLException
+	 */
 	@FXML
 	void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
 
@@ -77,6 +85,8 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 		messages.put("address", address.getText());
 		messages.put("instructions", instructions.getText());
 		messages.put("province", province.getValue());
+
+		//Thong tin khach hang co lua chon rushOrder hay khong
 		messages.put("rushOrder", rushOrder.isSelected() ? "true" : "false");
 
 		try {
@@ -88,6 +98,8 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 	
 		// calculate shipping fees
 		int shippingFees = getBController().calculateShippingFee(order);
+		// + 30% shipping fees neu chon rushOrder
+		if (rushOrder.isSelected()) shippingFees += 0.3*shippingFees;
 		order.setShippingFees(shippingFees);
 		order.setDeliveryInfo(messages);
 		

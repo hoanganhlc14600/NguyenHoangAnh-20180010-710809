@@ -83,6 +83,7 @@ public class PlaceOrderController extends BaseController{
    * @throws IOException
    */
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
+        //Nguyen Hoang Anh - 20180010
     	if(!validateName(info.get("name"))){
             throw new InterruptedException("Name is invalid");
         }
@@ -93,6 +94,7 @@ public class PlaceOrderController extends BaseController{
             throw new InterruptedException("Phone number is invalid");
         }
 
+        //Neu khach hang lua chon Place Rush Order thi tien hanh kiem tra xem du dieu kien khong
         if(info.get("rushOrder") == "true") {
             if(!validateProvince(info.get("province"))) {
                 throw new InterruptedException("Province does not support rush order");
@@ -157,9 +159,13 @@ public class PlaceOrderController extends BaseController{
      * @return
      */
     public boolean validateProvince(String province){
+        //Nguyen Hoang Anh - 20180010
+        // Dia diem dao hang khong duoc de trong
         if(province == null){
             return false;
         }
+
+        //Chi giao hang nhanh o Ha Noi, Da Nang va Ho Chi Minh
         if(province.equals("Hà Nội") || province.equals("Đà Nẵng") || province.equals("Hồ Chí Minh")) {
             return true;
         }
