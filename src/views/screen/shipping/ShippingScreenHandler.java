@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Configs;
@@ -43,6 +44,9 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 
 	@FXML
 	private ComboBox<String> province;
+
+	@FXML
+	private RadioButton rushOrder;
 
 	private Order order;
 
@@ -73,6 +77,8 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 		messages.put("address", address.getText());
 		messages.put("instructions", instructions.getText());
 		messages.put("province", province.getValue());
+		messages.put("rushOrder", rushOrder.isSelected() ? "true" : "false");
+
 		try {
 			// process and validate delivery info
 			getBController().processDeliveryInfo(messages);

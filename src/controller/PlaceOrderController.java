@@ -92,6 +92,12 @@ public class PlaceOrderController extends BaseController{
         if(!validatePhoneNumber(info.get("phone"))){
             throw new InterruptedException("Phone number is invalid");
         }
+
+        if(info.get("rushOrder") == "true") {
+            if(!validateProvince(info.get("province"))) {
+                throw new InterruptedException("Province does not support rush order");
+            }
+        }
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
@@ -143,6 +149,21 @@ public class PlaceOrderController extends BaseController{
     	boolean check = m.find();
     	if (check == true) return false;
     	return true;
+    }
+
+    /**
+     * Kiem tra xem dia diem co ho tro giao hang nhanh hay khong, cu the o day chi ho tro Ha Noi hoac TP.Ho Chi Minh hoac Da Nang
+     * @param province : dia diem khach hang yeu cau van chuyen den
+     * @return
+     */
+    public boolean validateProvince(String province){
+        if(province == null){
+            return false;
+        }
+        if(province.equals("Hà Nội") || province.equals("Đà Nẵng") || province.equals("Hồ Chí Minh")) {
+            return true;
+        }
+        return false;
     }
     
 
