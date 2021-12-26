@@ -15,7 +15,7 @@ import utils.Utils;
  * @author nguyenlm
  */
 public class Media {
-
+    //Nguyen Hoang Anh 20180010
     private static Logger LOGGER = Utils.getLogger(Media.class.getName());
 
     protected Statement stm;

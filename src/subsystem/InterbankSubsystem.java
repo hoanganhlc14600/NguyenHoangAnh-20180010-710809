@@ -30,7 +30,7 @@ public class InterbankSubsystem implements InterbankInterface {
 		String str = new String();
 		this.ctrl = new InterbankSubsystemController();
 	}
-
+	//Nguyen Hoang Anh 20180010
 	/**
 	 * @see InterbankInterface#payOrder(entity.payment.PaymentCard, int,
 	 *      java.lang.String)

@@ -2,6 +2,7 @@ package utils;
 import entity.order.Order;
 import java.util.Random;
 public class NormalShippingFeesCalculator implements ShippingFeesCalculator {
+    //Nguyen Hoang Anh 20180010
     @Override
     public int calculateShippingFees (Order order) {
         Random rand = new Random();

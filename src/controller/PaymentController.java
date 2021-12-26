@@ -83,6 +83,7 @@ public class PaymentController extends BaseController {
 	 * @return {@link java.util.Map Map} represent the payment result with a
 	 *         message.
 	 */
+	//Nguyen Hoang Anh 20180010
 	public Map<String, String> payOrderByCreditCard(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();
@@ -101,7 +102,7 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
+	//Nguyen Hoang Anh 20180010
 	public Map<String, String> payOrderByDomesticDebitCard(int amount, String contents, String domesticCardNumber,
 														   String domesticHolderName, String domesticValidFromDate, String domesticUsingBank) {
 		Map<String, String> result = new Hashtable<String, String>();

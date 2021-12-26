@@ -89,7 +89,7 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="domesticHolderName" text="Group 20">
+            <TextField fx:id="domesticHolderName" text="Nguyen Hoang Anh">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

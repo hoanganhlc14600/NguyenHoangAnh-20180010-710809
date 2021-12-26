@@ -27,7 +27,7 @@ import utils.NormalShippingFeesCalculator;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
-
+    //Nguyen Hoang Anh 20180010
     private ShippingFeesCalculator shippingFeesCalculator;
     public void setShippingFeesCalculator(ShippingFeesCalculator shippingFeesCalculator) {
         this.shippingFeesCalculator = shippingFeesCalculator;
@@ -168,7 +168,7 @@ public class PlaceOrderController extends BaseController{
      */
     public boolean validateProvince(String province){
         //Nguyen Hoang Anh - 20180010
-        // Dia diem dao hang khong duoc de trong
+        // Dia diem giao hang khong duoc ho tro
         if(province == null){
             return false;
         }
