@@ -8,20 +8,20 @@ public class NewShippingFeesCalculator implements ShippingFeesCalculator {
         int amount = order.getAmount();
         float weight = order.getTotalWeight() + order.getTotalAlternativeWeight();
 
-        // order amount >= 1000 -> free Ship
-        if (amount >= 1000) {
+        // order amount >= 100000 -> free Ship
+        if (amount >= 100000) {
             return fees;
         }
 
         String province = order.getDeliveryInfo().get("province").toString();
-        if (province.equals("Hà Nội") || province.equals("Hồ Chí Minh") || province.equals("Đà Nẵng")) {
-            fees = weight <= 2 ? 10 : (int) (10 + 1 * (weight - 2));
+        if (province.equals("Hà Nội") || province.equals("Hồ Chí Minh")) {
+            fees = weight <= 3 ? 22000 : (int) (22000 + 5000 * (weight - 3));
         } else {
-            fees = weight <= 1.5 ? 20 : (int) (20 + 1 * (weight - 1.5));
+            fees = weight <= 0.5 ? 30000 : (int) (30000 + 5000 * (weight - 0.5));
         }
 
         if (order.rushOrder()) {
-            fees += 15 * order.getlstOrderMedia().size();
+            fees += 10000 * order.getlstOrderMedia().size();
         }
 
         return fees;
