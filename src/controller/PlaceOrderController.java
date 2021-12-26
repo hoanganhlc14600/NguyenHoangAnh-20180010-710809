@@ -18,12 +18,20 @@ import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
 import views.screen.popup.PopupScreen;
+import utils.ShippingFeesCalculator;
+import utils.NewShippingFeesCalculator;
+import utils.NormalShippingFeesCalculator;
 
 /**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
+
+    private ShippingFeesCalculator shippingFeesCalculator;
+    public void setShippingFeesCalculator(ShippingFeesCalculator shippingFeesCalculator) {
+        this.shippingFeesCalculator = shippingFeesCalculator;
+    }
 
     /**
      * Just for logging purpose
@@ -179,9 +187,6 @@ public class PlaceOrderController extends BaseController{
      * @return shippingFee
      */
     public int calculateShippingFee(Order order){
-        Random rand = new Random();
-        int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );
-        LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
-        return fees;
+        return shippingFeesCalculator.calculateShippingFees(order);
     }
 }
